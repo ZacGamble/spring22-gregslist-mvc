@@ -5,9 +5,7 @@ import { Pop } from "../Utils/Pop.js";
 
 function _drawCars() {
   let carsCardsTemplate = ''
-
   ProxyState.cars.forEach(car => carsCardsTemplate += car.CardTemplate)
-
   document.getElementById('listings').innerHTML = `
     <div class="row cars">
       ${carsCardsTemplate}
