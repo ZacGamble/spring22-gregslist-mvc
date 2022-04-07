@@ -1,10 +1,22 @@
 import { Car } from "./Models/Car.js"
 import { House } from "./Models/House.js"
+import { Job } from "./Models/Job.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { generateId } from "./Utils/generateId.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
+  /** @type {import('./Models/Job').Job[]} */
+  jobs = [
+    new Job({
+      id: '',
+      title: 'Shop Manager',
+      wage: '15 hourly',
+      remote: 'false',
+      snacks: 'pizza party',
+      education: 'PhD'
+    })
+  ]
   /** @type {import ('./Models/House').House[]} */
   houses = [
     new House({

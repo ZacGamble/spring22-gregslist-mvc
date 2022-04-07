@@ -41,7 +41,6 @@ export class HousingController {
         img: formElem.img.value
       }
       housingService.addHouse(formData)
-      console.log(formData)
       
     } catch (error) {
      console.error( "Something went wrong :/", error)
