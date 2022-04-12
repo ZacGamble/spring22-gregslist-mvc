@@ -6,6 +6,20 @@ import { generateId } from "./Utils/generateId.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
+  /** @type {import ('./Models/House').House[]} */
+  houses = [
+    new House({
+      id: '',
+      bedrooms: 3,
+      bathrooms: 2,
+      levels: 2,
+      price: 490000,
+      year: 1983,
+      description: "Rustic chic will impress",
+      color: 'red',
+      imgUrl: 'https://i.pinimg.com/originals/03/e7/7c/03e77cf89d93a55e6ca25dd99c80eeb8.jpg'
+    })
+  ]
   /** @type {import('./Models/Job').Job[]} */
   jobs = [
     new Job({
@@ -15,20 +29,6 @@ class AppState extends EventEmitter {
       remote: 'false',
       snacks: 'pizza party',
       education: 'PhD'
-    })
-  ]
-  /** @type {import ('./Models/House').House[]} */
-  houses = [
-    new House({
-      id: '',
-      bedrooms: 3,
-      bathrooms: 2,
-      footage: 1900,
-      price: 490000,
-      year: 1983,
-      condition: "Great",
-      color: 'red',
-      img: 'https://i.pinimg.com/originals/03/e7/7c/03e77cf89d93a55e6ca25dd99c80eeb8.jpg'
     })
   ]
   /** @type {import('./Models/Car').Car[]} */

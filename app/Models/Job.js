@@ -1,7 +1,7 @@
 import { generateId } from "../Utils/generateId.js"
 
 export class Job {
-  constructor({ id = generateId(), title, wage, remote, snacks, education}) {
+  constructor({ id, title, wage, remote, snacks, education}) {
     // handle out conditions first
     if (!title || !wage) {
       throw new Error('You can\'t add a job without at least a title and wage')
@@ -20,7 +20,7 @@ export class Job {
 
   get CardTemplate() {
     return `
-    <div class="car col-md-4 p-4">
+    <div class="col-md-4 p-4">
       <div class="bg-white shadow rounded text-center">
         <span>${this.title}</span>
         <div class="p-3 d-flex flex-column">

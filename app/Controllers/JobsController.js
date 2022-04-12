@@ -5,30 +5,27 @@ import { Pop } from "../Utils/Pop.js";
 
 
 //Private
-function _draw() {
-  let jobs = ProxyState.jobs;
+function _drawJobs() {
   let jobCardsTemplate = ''
   ProxyState.jobs.forEach(job => jobCardsTemplate += job.CardTemplate)
-  document.getElementById("listings").innerHTML = /*html*/`
-  <div class="my-3">
-    <button class="btn btn-secondary text-white elevation-2" onclick="app.jobsController.addJob()">Add Job</button>  
-    <div class="jobs d-flex flex-wrap my-3">
-      ${jobCardsTemplate}
-    </div>
-  </div>
-  `
+  document.getElementById("listings").innerHTML = `
+  <div class="row jobs">
+  ${jobCardsTemplate}
+</div>
+`
+  document.getElementById('listing-modal-form-slot').innerHTML = getJobForm()
+  document.getElementById('add-listing-modal-label').innerText = 'Add Job'
 }
 
 //Public
 export class JobsController {
   constructor() {
-    ProxyState.on("jobs", _draw);
-    _draw()
+    ProxyState.on("jobs", _drawJobs);
+    _drawJobs()
   }
 
   addJob() {
     try { event.preventDefault();
-      
       jobsService.addJob()
     } catch (error) {
       
@@ -40,8 +37,5 @@ export class JobsController {
     if (yes) {
       // jobsService.removeJob(id)
     }
-  }
-  drawJobs(){
-    _draw()
   }
 }

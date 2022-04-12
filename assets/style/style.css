@@ -16,3 +16,8 @@
   display: grid;
   place-content: center;
 }
+
+.edit:hover{
+  background-color: rgb(230, 170, 170);
+  
+}
