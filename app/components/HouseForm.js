@@ -1,6 +1,6 @@
 import { House } from "../Models/House.js"
 export function getHouseForm(house) {
-  house = house || new House({})
+  house = house || new House({});
   return `
   <form onsubmit="app.housingController.addHouse('${house.id}')">
     <div class="mb-3 d-flex justify-content-between">
@@ -25,10 +25,6 @@ export function getHouseForm(house) {
         <label for="year" class="form-label">Year</label>
         <input type="number" class="form-control" name="year" id="year" aria-describedby="year"
           placeholder="Year..." min="1950" max="2022" required value="${house.year}">
-      </div>
-      <div>
-        <label for="color" class="form-label">Color</label>
-        <input type="color" class="form-control" name="color" id="color" aria-describedby="color" required value="${house.color}">
       </div>
       <div>
         <label for="price" class="form-label">Price</label>

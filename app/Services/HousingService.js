@@ -21,7 +21,7 @@ class HousingService{
         const houses = res.data.map(h => new House(h))
         //failing here? it could not map my broken get address ^ /no default class values
         ProxyState.houses = houses
-        console.log(houses);
+        console.log(res);
     }
     async removeHouse(id){
         // console.log(id);

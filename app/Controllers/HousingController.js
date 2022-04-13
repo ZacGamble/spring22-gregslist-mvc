@@ -45,7 +45,6 @@ export class HousingController {
         levels: formElem.levels.value,
         price: formElem.price.value,
         year: formElem.year.value,
-        color: formElem.color.value,
         imgUrl: formElem.imgUrl.value,
         description: formElem.description.value
       }
