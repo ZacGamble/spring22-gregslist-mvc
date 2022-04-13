@@ -1,7 +1,7 @@
 import { generateId } from "../Utils/generateId.js"
 
 export class House {
-  constructor({ id, bedrooms, bathrooms, levels, year, description, color, imgUrl, price}) {
+  constructor({ id, bedrooms, bathrooms, levels, year, description, imgUrl, price}) {
     // handle out descriptions first
     this.id = id 
     this.bedrooms = bedrooms || ''
@@ -18,7 +18,7 @@ export class House {
     <div class="car col-md-4 p-4">
       <div class="bg-white shadow rounded">
         <img style="max-height: 500vh;" class="w-100 rounded-top" src='${this.imgUrl}' alt="a house image">
-        <div class="p-2 mdi mdi-pen bg-light edit" onclick="app.housingController.handleSubmit('${this.id}')"></div>
+        <div class="p-2 mdi mdi-pen bg-light edit" onclick="app.housingController.openEditor('${this.id}')"></div>
         <div class="p-3 d-flex flex-column">
           <p class="text-center uppercase"><b>${this.bedrooms} bed - ${this.bathrooms} bath - ${this.levels} levels - built in ${this.year}</b></p>
           <p class="m-0">${this.description}</p>

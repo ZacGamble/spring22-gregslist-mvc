@@ -2,7 +2,7 @@ import { House } from "../Models/House.js"
 export function getHouseForm(house) {
   house = house || new House({});
   return `
-  <form onsubmit="app.housingController.addHouse('${house.id}')">
+  <form onsubmit="app.housingController.handleSubmit('${house.id}')">
     <div class="mb-3 d-flex justify-content-between">
       <div>
         <label for="Beds" class="form-label">Beds</label>

@@ -30,7 +30,7 @@ export class HousingController {
     _getAllHousing()
   }
 
-  async addHouse(formData) {
+  async handleSubmit(id) {
     // DO THIS like always
     try {
       event.preventDefault()
@@ -48,13 +48,13 @@ export class HousingController {
         imgUrl: formElem.imgUrl.value,
         description: formElem.description.value
       }
-      await housingService.addHouse(formData)
-      // if(id == 'undefined'){
-      //   await housingService.addHouse(formData)
-      // }else{
-      //   formData.id = id
-      //   await housingService.editHouse(formData)
-      // }
+      // await housingService.addHouse(formData)
+      if(id == 'undefined'){
+        await housingService.addHouse(formData)
+      }else{
+        formData.id = id
+        await housingService.editHouse(formData)
+      }
       
     } catch (error) {
      console.error( "Something went wrong :/", error)
@@ -69,6 +69,17 @@ export class HousingController {
     } catch (error) {
       Pop.toast(error, 'error')
     }
+  }
+  openEditor(id) {
+    let house = ProxyState.houses.find(h => h.id == id)
+    if (!house) {
+      Pop.toast("Invalid house Id", 'error')
+      return
+    }
+
+    document.getElementById('listing-modal-form-slot').innerHTML = getHouseForm(house)
+    // @ts-ignore
+    bootstrap.Modal.getOrCreateInstance(document.getElementById('add-listing-modal')).show()
   }
   drawHouses() {
     _drawHouses()
